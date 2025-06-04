@@ -1,3 +1,14 @@
-export default function about() {
-  return <h1>This is the about page</h1>;
+import Button from "@/components/common/Button";
+
+export default function About() {
+  return (
+    <div className="min-h-screen p-6 space-y-6">
+      <h1 className="text-2xl font-bold mb-4">Reusable Buttons</h1>
+      <div className="flex gap-4 flex-wrap">
+        <Button label="Small Button" size="small" shape="rounded-sm" />
+        <Button label="Medium Button" size="medium" shape="rounded-md" />
+        <Button label="Large Button" size="large" shape="rounded-full" />
+      </div>
+    </div>
+  );
 }
