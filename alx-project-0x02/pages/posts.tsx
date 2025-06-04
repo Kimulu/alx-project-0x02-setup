@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
 import PostCard from "@/components/common/PostCard";
 import { type PostProps } from "@/interfaces";
 
-export default function PostsPage() {
-  const [posts, setPosts] = useState<PostProps[]>([]);
+interface PostsPageProps {
+  posts: PostProps[];
+}
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-      .catch((err) => console.error("Failed to fetch posts:", err));
-  }, []);
-
+export default function PostsPage({ posts }: PostsPageProps) {
   return (
     <div className="max-w-5xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Posts</h1>
@@ -28,4 +22,17 @@ export default function PostsPage() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?_limit=10"
+  );
+  const posts: PostProps[] = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
