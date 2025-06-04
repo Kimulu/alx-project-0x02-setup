@@ -24,6 +24,12 @@ export default function Header() {
           >
             Posts
           </Link>
+          <Link
+            href="/users"
+            className="text-gray-800 hover:text-blue-600 font-medium transition-colors"
+          >
+            Users
+          </Link>
         </div>
       </div>
     </nav>
