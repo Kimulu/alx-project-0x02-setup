@@ -1,16 +1,25 @@
+// components/layout/Header.tsx
 import Link from "next/link";
 
 export default function Header() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link href="/home">Home</Link>
-        </li>
-        <li>
-          <Link href="/about">about</Link>
-        </li>
-      </ul>
+    <nav className="bg-white shadow-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+        <div className="flex items-center space-x-6">
+          <Link
+            href="/home"
+            className="text-gray-800 hover:text-blue-600 font-medium transition-colors"
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="text-gray-800 hover:text-blue-600 font-medium transition-colors"
+          >
+            About
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }
