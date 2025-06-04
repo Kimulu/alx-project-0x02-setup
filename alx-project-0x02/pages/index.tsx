@@ -1,3 +1,6 @@
+//@ts-nocheck
+import Header from "@/components/layout/Header";
+
 export default function Home() {
-  return <h1>Welcome Home</h1>;
+  return <Header />;
 }
